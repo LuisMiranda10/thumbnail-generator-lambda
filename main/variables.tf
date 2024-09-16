@@ -1,6 +1,6 @@
 variable "aws_region" {
-    type = string
-    description = "AWS region to use for resources"
+  type        = string
+  description = "AWS region to use for resources"
 }
 
 variable "environment" {
@@ -9,19 +9,19 @@ variable "environment" {
 }
 
 variable "source_bucket_prefix" {
-    type = string
-    description = "A prefix applied to the source S3 bucket created to ensure a unique name."
-    default = "source-bucket"
+  type        = string
+  description = "A prefix applied to the source S3 bucket created to ensure a unique name."
+  default     = "source-bucket"
 }
 
 variable "dest_bucket_prefix" {
-    type = string
-    description = "A prefix applied to the destination S3 bucket created to ensure a unique name."
-    default = "destination-bucket"
+  type        = string
+  description = "A prefix applied to the destination S3 bucket created to ensure a unique name."
+  default     = "destination-bucket"
 }
 
 variable "service_name" {
-  type = string
+  type        = string
   description = "Service name used in tags"
-  default = "project-thumbnail"
+  default     = "project-thumbnail"
 }
