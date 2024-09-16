@@ -1,6 +1,6 @@
 data "archive_file" "thumbnail_lambda_source_archive" { # compactando o arquivo em ZIP para que o AWS Lambda aceite
   type        = "zip"
-  source_file = "${path.module}/lambda_code"
+  source_dir = "${path.module}/lambda_code"
   output_path = "${path.module}/my-lambda-function.zip"
 }
 
@@ -16,7 +16,7 @@ resource "aws_lambda_function" "lambda_function" {
   handler          = "lambdaFunction.lambda_handler" # função lambda que vai ser usada
 
   layers = [
-    "arn:aws:lambda:us-east-1:770693421928:layer:Klayers-p312-Pillow:2"
+    "arn:aws:lambda:sa-east-1:770693421928:layer:Klayers-p312-Pillow:2"
   ]
 
   environment {
