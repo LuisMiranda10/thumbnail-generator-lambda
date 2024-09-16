@@ -27,14 +27,14 @@ resource "aws_iam_role" "role_for_lambda" {
     }]
   })
   tags = merge(local.common_tags, {
-    tag-key = "${namespaced_service_name}-role-lambda"
+    tag-key = "${local.namespaced_service_name}-role-lambda"
   })
 }
 
-resource "aws_iam_policy-attachment" "s3_policy_attachment" {
+resource "aws_iam_policy_attachment" "s3_policy_attachment" {
   name       = "assigned-policy-for-role"
   roles      = [aws_iam_role.role_for_lambda.name]
-  policy_arn = aws_iam_policy.lambda_policy_buckets.arn
+  policy_arn = aws_iam_policy.lambda-policy-buckets.arn
 }
 
 resource "aws_iam_policy_attachment" "lambda_policy_attachment" {
