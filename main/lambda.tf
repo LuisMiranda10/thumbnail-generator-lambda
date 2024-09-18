@@ -1,11 +1,11 @@
 data "archive_file" "thumbnail_lambda_source_archive" { # compactando o arquivo em ZIP para que o AWS Lambda aceite
   type        = "zip"
-  source_dir = "${path.module}/lambda_code"
+  source_dir  = "${path.module}/lambda_code"
   output_path = "${path.module}/my-lambda-function.zip"
 }
 
 resource "aws_lambda_function" "lambda_function" {
-  filename         = "${path.module}/main/my-lambda-function.zip"
+  filename         = "${path.module}/my-lambda-function.zip"
   function_name    = "Thumbnail-Lambda-Function"
   role             = aws_iam_role.role_for_lambda.arn
   description      = "Lambda Function used to generate thumbnail image"
