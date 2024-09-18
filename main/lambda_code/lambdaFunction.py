@@ -31,7 +31,7 @@ def lambda_handler(event, context):
     
     sent_data = s3_client.put_object(Bucket=thumbnail_bucket, Key=thumbnail_key, Body=buffer)
     
-    if sent_data['ResponseMetaData']['HTTPStatusCode'] != 200:
+    if sent_data['ResponseMetadata']['HTTPStatusCode'] != 200:
         raise Exception('Failed to upload image {} to bucket {}'.format(key, bucket))
     
     return event
